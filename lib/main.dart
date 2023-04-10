@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => const FirstPage(),
-        "/profile": (context) => const SecondPage(),
+        "/profile": (context) => const Myprofile(),
+        "/myapps": (context) => const Myapps(),
       },
     );
   }
@@ -43,7 +44,7 @@ class FirstPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 width: _screenSize.width,
                 child: Image.asset("images/kante.jpg"),
               ),
@@ -51,10 +52,7 @@ class FirstPage extends StatelessWidget {
                 padding: EdgeInsets.only(left: 10),
                 height: 50,
                 child: Row(
-                  children: [
-                    Image.network(
-                        "https://fontmeme.com/permalink/230410/e8fc242614cbe3efd9fe0661358763b8.png"),
-                  ],
+                  children: [Image.asset("images/title.png")],
                 ),
               ),
               Container(
@@ -102,9 +100,13 @@ class MyDrawer extends StatelessWidget {
                 },
                 child: Text('Profile')),
           ),
-          const ListTile(
+          ListTile(
             leading: Icon(Icons.app_registration_rounded),
-            title: Text('Myapps'),
+            title: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, "/myapps");
+                },
+                child: Text('Myapps')),
           ),
           const ListTile(
             leading: Icon(Icons.message),
@@ -116,8 +118,8 @@ class MyDrawer extends StatelessWidget {
   }
 }
 
-class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
+class Myprofile extends StatelessWidget {
+  const Myprofile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -130,6 +132,11 @@ class SecondPage extends StatelessWidget {
           children: [
             Column(
               children: [
+                Container(
+                    child: Image.asset(
+                  "images/myicon.jpg",
+                  fit: BoxFit.contain,
+                )),
                 ElevatedButton(
                     onPressed: () {
                       Navigator.pop(
@@ -138,7 +145,44 @@ class SecondPage extends StatelessWidget {
                       // Navigator.of(context).push(MaterialPageRoute(
                       //     builder: (context) => const SecondPage()));
                     },
-                    child: const Text("戻る　")),
+                    child: const Text("戻る")),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Myapps extends StatelessWidget {
+  const Myapps({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Augustaroのプロフ"),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Column(
+              children: [
+                Text("カミングスーン！！！"),
+                Container(
+                  width: 20,
+                  child: Image.asset("images/girl.jpg"),
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                      );
+                      // Navigator.of(context).push(MaterialPageRoute(
+                      //     builder: (context) => const SecondPage()));
+                    },
+                    child: const Text("戻る")),
               ],
             )
           ],
