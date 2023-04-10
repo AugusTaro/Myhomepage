@@ -139,7 +139,7 @@ class SecondPage extends StatelessWidget {
                       // Navigator.of(context).push(MaterialPageRoute(
                       //     builder: (context) => const SecondPage()));
                     },
-                    child: const Text("戻る")),
+                    child: const Text("戻る　")),
               ],
             )
           ],
