@@ -34,12 +34,12 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 215, 229, 236),
+      backgroundColor: const Color.fromARGB(255, 215, 229, 236),
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[400],
-        title: Text("Augustaroの館"),
+        title: const Text("Augustaroの館"),
       ),
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -49,7 +49,7 @@ class FirstPage extends StatelessWidget {
                 child: Image.asset("images/kante.jpg"),
               ),
               Container(
-                padding: EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: 10),
                 height: 50,
                 child: Row(
                   children: [Image.asset("images/title.png")],
@@ -60,7 +60,7 @@ class FirstPage extends StatelessWidget {
               ),
               const Text("お知らせ"),
               Container(
-                padding: EdgeInsets.all(30),
+                padding: const EdgeInsets.all(30),
                 child: const Text(
                     " Once upon a time, there was a girl named Explosion.\n She was always fascinated by fireworks and loved to watch them light up the sky. \n One day, she decided to create her own fireworks display. She spent hours preparing and setting up the fireworks, and when it was finally time to light them up, she was so excited that she forgot to take a step back. As soon as she lit the fuse, there was a loud explosion and she was thrown back by the force of it. \n She wasn’t hurt, but she learned an important lesson that day - always take a step back before lighting fireworks!"),
               )
@@ -98,15 +98,21 @@ class MyDrawer extends StatelessWidget {
                 onTap: () {
                   Navigator.pushNamed(context, "/profile");
                 },
-                child: Text('Profile')),
+                child: const Text(
+                  'Profile',
+                  style: TextStyle(decoration: TextDecoration.underline),
+                )),
           ),
           ListTile(
-            leading: Icon(Icons.app_registration_rounded),
+            leading: const Icon(Icons.app_registration_rounded),
             title: GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, "/myapps");
                 },
-                child: Text('Myapps')),
+                child: const Text(
+                  'Myapps',
+                  style: TextStyle(decoration: TextDecoration.underline),
+                )),
           ),
           const ListTile(
             leading: Icon(Icons.message),
@@ -162,15 +168,15 @@ class Myapps extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Augustaroのプロフ"),
+        title: const Text("Augustaroのアプリ"),
       ),
       body: Center(
         child: Column(
           children: [
             Column(
               children: [
-                Text("カミングスーン！！！"),
-                Container(
+                const Text("カミングスーン！！！"),
+                SizedBox(
                   width: 20,
                   child: Image.asset("images/girl.jpg"),
                 ),
