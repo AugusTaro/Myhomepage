@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => const FirstPage(),
         "/profile": (context) => const SecondPage(),
-        "/profile": (context) => const SecondPage(),
       },
     );
   }
@@ -99,7 +98,7 @@ class MyDrawer extends StatelessWidget {
             leading: const Icon(Icons.account_circle),
             title: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, "/second");
+                  Navigator.pushNamed(context, "/profile");
                 },
                 child: Text('Profile')),
           ),
